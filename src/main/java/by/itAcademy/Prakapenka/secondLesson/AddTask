@@ -1,18 +1,34 @@
 import java.util.Scanner;
 
-public class AddTask {
+public class Main {
     public static void main(String[] args) {
         //base values` blocks
-        int testIntOne = 3;
-        int testIntTwo = 8;
+        int testIntOne = -3;
+        int testIntTwo = -8;
 
-        int testNValue = takeFromScanner("Unput your ""n"" parameter...");
+        //first task test
+        System.out.println("The first test begins");
+        int testNValue = takeIntFromScanner("Unput your \"n \" parameter...");
+        boolean compareResult = compareTwoNumbers(testIntOne, testIntTwo, testNValue);
 
-        //System.out.println("Random value in range of " + testIntOne + " - " + testIntTwo + " is " + calcRandomInGap(testIntOne, testIntTwo)); //search random value in range of 2 numbers
+        System.out.printf("Is number %d more than number %d by %d? - %s.", testIntOne, testIntTwo, testNValue, compareResult);
+        System.out.println();
+
+        //second task test
+        System.out.println("The second test begins");
+        int secondtestIntOne = takeIntFromScanner("Unput your first number...");
+        int secondtestIntTwo = takeIntFromScanner("Unput your second number...");
+        boolean devideResult = checkingDevide(secondtestIntOne, secondtestIntTwo);
+
+        System.out.printf("Is number %d divide by %d? - %s.", secondtestIntOne, secondtestIntTwo, devideResult);
     }
 
-    public static int compTwoNumbers(int firstnumber, int secondnumber, int nParam) {
-        System.out.println("d");
+    public static boolean compareTwoNumbers(int firstnumber, int secondnumber, int nParam) {
+        return ((firstnumber-secondnumber)==nParam);
+    }
+
+    public static boolean checkingDevide(int firstnumber, int secondnumber) {
+        return ((firstnumber%secondnumber)==0);
     }
 
     public static int takeIntFromScanner(String message) {
