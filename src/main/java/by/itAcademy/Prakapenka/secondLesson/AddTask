@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Addtask {
+    public static void main(String[] args) {
+        //base values` blocks
+        int testIntOne = 3;
+        int testIntTwo = 8;
+
+        int testNValue = takeFromScanner("Unput your ""n"" parameter...");
+
+        //System.out.println("Random value in range of " + testIntOne + " - " + testIntTwo + " is " + calcRandomInGap(testIntOne, testIntTwo)); //search random value in range of 2 numbers
+    }
+
+    public static int compTwoNumbers(int firstnumber, int secondnumber, int nParam) {
+        System.out.println("d");
+    }
+
+    public static int takeIntFromScanner(String message) {
+        System.out.println(message);
+        Scanner scn = new Scanner(System.in);
+        return (scn.nextInt());
+    }
+}
