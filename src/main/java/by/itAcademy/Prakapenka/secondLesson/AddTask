@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Addtask {
+public class AddTask {
     public static void main(String[] args) {
         //base values` blocks
         int testIntOne = 3;
