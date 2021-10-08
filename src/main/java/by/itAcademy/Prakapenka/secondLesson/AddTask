@@ -1,6 +1,8 @@
+package main.java.by.itAcademy.Prakapenka.secondLesson;
+
 import java.util.Scanner;
 
-public class Main {
+public class AddTask {
     public static void main(String[] args) {
         //base values` blocks
         int testIntOne = -3;
@@ -24,16 +26,16 @@ public class Main {
     }
 
     public static boolean compareTwoNumbers(int firstnumber, int secondnumber, int nParam) {
-        return ((firstnumber-secondnumber)==nParam);
+        return (firstnumber-secondnumber)==nParam;
     }
 
     public static boolean checkingDevide(int firstnumber, int secondnumber) {
-        return ((firstnumber%secondnumber)==0);
+        return (firstnumber%secondnumber)==0;
     }
 
     public static int takeIntFromScanner(String message) {
         System.out.println(message);
         Scanner scn = new Scanner(System.in);
-        return (scn.nextInt());
+        return scn.nextInt();
     }
 }
