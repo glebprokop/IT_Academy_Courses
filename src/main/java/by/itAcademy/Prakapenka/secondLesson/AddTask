@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class AddTask {
     public static void main(String[] args) {
-        //base values` blocks
+        // base values` blocks
         int testIntOne = -3;
         int testIntTwo = -8;
 

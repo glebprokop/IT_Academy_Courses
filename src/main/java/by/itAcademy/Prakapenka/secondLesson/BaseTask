@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class BaseTask
 {
     public static void main(String[] args) {
-        //tests` blocks
+        // tests` blocks
         System.out.println("User`s int number: " + inputIntNumber()); //for func to input integer number
         System.out.println("User`s double number: " + inputDoubleNumber()); //for func to input double number
         System.out.println("User`s namr: " + inputUserName()); //for func to input name
