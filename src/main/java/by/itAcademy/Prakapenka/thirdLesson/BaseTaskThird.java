@@ -29,7 +29,7 @@ public class BaseTaskThird {
     public static void isNumberInGap(){
         int randomNumber = calcRandomInGap(5, 155);
 
-        if ((randomNumber>25)&(randomNumber<100)) {
+        if ((randomNumber>25)&&(randomNumber<100)) {
             System.out.println("The number " + randomNumber + " is in interval (25, 100)");
         }
         else {
@@ -41,7 +41,7 @@ public class BaseTaskThird {
         int sides[] = inputUserIntNumbers("Input 3 sides for checking after Ent...", 3);
         int a = sides[0], b = sides[1], c = sides[2];
 
-        if ((a + b > c)&(a + c > b)&(c + b > a)){
+        if ((a + b > c)&&(a + c > b)&&(c + b > a)){
             System.out.printf("Triangle this sides %d, %d and %d may exist!", a, b, c);
         }
         else {
