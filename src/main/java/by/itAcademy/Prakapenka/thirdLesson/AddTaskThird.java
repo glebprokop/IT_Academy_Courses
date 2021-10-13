@@ -48,7 +48,7 @@ public class AddTaskThird {
         System.out.println(test3[0] + ", " + test3[1]);
         }
 
-    //main code block
+    // main code block
     public static void lengthOfLongestSubstring(String checkingStr) {
         String[] strArray = checkingStr.split("");
 
