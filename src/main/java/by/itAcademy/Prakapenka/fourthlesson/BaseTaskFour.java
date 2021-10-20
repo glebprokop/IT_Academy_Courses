@@ -4,50 +4,78 @@ import java.util.Scanner;
 
 public class BaseTaskFour {
     public static void main(String[] args) {
-        int userInterfaceArray[] = inputUserIntNumbers("Let`s start working, input 1 (sum method), " +
-                "2 (check prime number)," +
-                " 3 (for printing the gap from 90 to 0)," +
-                " 4 (for checking even number)," +
-                "5 (for calculating a factorial)", 1);
 
-        switch (userInterfaceArray[0]) {
-            case 1:
-                int userNumber1[] = inputUserIntNumbers("Input your number for sum method", 1);
-                System.out.println(sumFromOneToNumber(userNumber1[0]));
-                break;
-            case 2:
-                int userNumber2[] = inputUserIntNumbers("Input your number for checking prime number method", 1);
-                System.out.println(isPrimeNumber(userNumber2[0]));
-                break;
-            case 3:
-                printPositivsInGap();
-                break;
-            case 4:
-                int userNumber3[] = inputUserIntNumbers("Input your number for checking even number method", 1);
-                System.out.println(isEvenNumber(userNumber3[0]));
-                break;
-            case 5:
-                int userNumber4[] = inputUserIntNumbers("Input your number for calc factorial", 1);
-                System.out.println(calculateFactorialRecursion(userNumber4[0]));
-                break;
-            default:
-                System.out.println("Some error is coming, restart the program");
+
+        Scanner scn = new Scanner(System.in);
+
+        int userInput;
+
+        //switch in do-while loop
+        do{
+            System.out.println("Let`s start working, input 1 (sum method), " +
+                    "2 (check prime number)," +
+                    " 3 (for printing the gap from 90 to 0)," +
+                    " 4 (for checking even number)," +
+                    " 5 (for calculating a factorial)," +
+                    "0 for exit.");
+
+            userInput = scn.nextInt();
+
+            switch (userInput) {
+                case 1:
+                    System.out.println("Input your number for sum method");
+                    int userNumber1 = scn.nextInt();
+                    int returnedSum = sumFromOneToNumber(userNumber1);
+
+                    if (returnedSum <= 0){
+                        System.out.println("User input is uncorrected (your number - " + userNumber1 +
+                                " - is  negative or Zero). The original number will returned.");
+                    }
+                    else{
+                        System.out.println(returnedSum);
+                    }
+
+                    break;
+                case 2:
+                    System.out.println("Input your number for checking prime number method");
+                    int userNumber2 = scn.nextInt();
+                    System.out.println(isPrimeNumber(userNumber2));
+                    break;
+                case 3:
+                    printPositivsInGap();
+                    break;
+                case 4:
+                    System.out.println("Input your number for checking even number method");
+                    int userNumber3 = scn.nextInt();
+                    System.out.println(isEvenNumber(userNumber3));
+                    break;
+                case 5:
+                    System.out.println("Input your number for calc factorial");
+                    int userNumber4 = scn.nextInt();
+                    System.out.println(calculateFactorialRecursion(userNumber4));
+                    break;
+                case 0:
+                    System.out.println("Finish!");
+                    break;
+                default:
+                    System.out.println("Some error is coming, restart the program");
+                }
+            } while (userInput!=0);
         }
-    }
 
     public static int sumFromOneToNumber(int userNumber) {
         if (userNumber > 0) {
             int sumNumber = 0;
-            for (int i = 1; i <= userNumber; i++) sumNumber += i;
+            for (int i = 1; i <= userNumber; i++){
+                sumNumber += i;
+            }
             return sumNumber;
         }
-        System.out.println("User input is uncorrected (your number - " + userNumber + " - is  negative or Zero). The original number will returned.");
         return userNumber;
     }
 
     public static boolean isEvenNumber(int userNumber) {
-        boolean checkingEvenNumber = userNumber % 2 == 0;
-        return checkingEvenNumber;
+        return (userNumber % 2 == 0) ? true : false;
     }
 
     //suppose using with only positive numbers
@@ -67,19 +95,7 @@ public class BaseTaskFour {
     }
 
     public static int calculateFactorialRecursion(int userNumber) {
-        if (userNumber == 1) return userNumber;
-        else if (userNumber == 0) return 1;
-
+        if ((userNumber == 1)||(userNumber == 0)) return 1;
         return userNumber * calculateFactorialRecursion(userNumber - 1);
-    }
-
-    //this method used for given the user`s integer numbers (in array)
-    public static int[] inputUserIntNumbers(String message, int countOfNumbers){
-        System.out.println(message);
-        int returnedNumbers[] = new int [countOfNumbers];
-        Scanner scn = new Scanner(System.in);
-
-        for (int i = 0; i < countOfNumbers; i++) returnedNumbers[i] = scn.nextInt();
-        return returnedNumbers;
     }
 }
