@@ -10,7 +10,7 @@ public class BaseTaskFour {
 
         int userInput;
 
-        // switch in do-while loop
+        //switch in do-while loop
         do{
             System.out.println("Let`s start working, input 1 (sum method), " +
                     "2 (check prime number)," +
