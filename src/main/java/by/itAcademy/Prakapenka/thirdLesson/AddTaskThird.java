@@ -3,6 +3,7 @@ package main.java.by.itAcademy.Prakapenka.thirdLesson;
 import java.util.Scanner;
 
 public class AddTaskThird {
+
     public static void main(String[] args) {
         int userInterfaceArray[] = inputUserIntNumbers("Let`s start working, input 1" +
                 " (test for longest substr), 2 (test for palindrome) " +
