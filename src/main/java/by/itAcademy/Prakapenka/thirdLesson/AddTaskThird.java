@@ -29,7 +29,7 @@ public class AddTaskThird {
         lengthOfLongestSubstring("bbbbbb");
         lengthOfLongestSubstring("pwwkew");
         lengthOfLongestSubstring("");
-        }
+    }
 
     public static void testForPalindrom(){
         System.out.println(isPalindrome(121));
@@ -47,7 +47,7 @@ public class AddTaskThird {
 
         int[] test3 = calculateTargetFromArray(new int[] {3, 3}, 6);
         System.out.println(test3[0] + ", " + test3[1]);
-        }
+    }
 
     // main code block
     public static void lengthOfLongestSubstring(String checkingStr) {
@@ -66,8 +66,8 @@ public class AddTaskThird {
         }
 
         if (currentStr.length()>maxStr.length()){
-                maxStr = currentStr;
-            }
+            maxStr = currentStr;
+        }
 
         //output
         if (checkingStr.length() == 0) {
@@ -112,5 +112,4 @@ public class AddTaskThird {
         return returnedNumbers;
     }
 }
-
 
