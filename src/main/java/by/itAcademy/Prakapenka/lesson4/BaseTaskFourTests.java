@@ -1,11 +1,10 @@
-package main.java.by.itAcademy.Prakapenka.fourthlesson;
-import main.java.by.itAcademy.Prakapenka.fourthlesson.BaseTaskFour;
+package main.java.by.itAcademy.Prakapenka.lesson4;
 
-import static main.java.by.itAcademy.Prakapenka.fourthlesson.BaseTaskFour.sumFromOneToNumber;
-import static main.java.by.itAcademy.Prakapenka.fourthlesson.BaseTaskFour.isEvenNumber;
-import static main.java.by.itAcademy.Prakapenka.fourthlesson.BaseTaskFour.isPrimeNumber;
-import static main.java.by.itAcademy.Prakapenka.fourthlesson.BaseTaskFour.printPositivsInGap;
-import static main.java.by.itAcademy.Prakapenka.fourthlesson.BaseTaskFour.calculateFactorialRecursion;
+import static main.java.by.itAcademy.Prakapenka.lesson4.BaseTaskFour.sumFromOneToNumber;
+import static main.java.by.itAcademy.Prakapenka.lesson4.BaseTaskFour.isEvenNumber;
+import static main.java.by.itAcademy.Prakapenka.lesson4.BaseTaskFour.isPrimeNumber;
+import static main.java.by.itAcademy.Prakapenka.lesson4.BaseTaskFour.printPositivsInGap;
+import static main.java.by.itAcademy.Prakapenka.lesson4.BaseTaskFour.calculateFactorialRecursion;
 
 public class BaseTaskFourTests {
     public static void main(String[] args) {

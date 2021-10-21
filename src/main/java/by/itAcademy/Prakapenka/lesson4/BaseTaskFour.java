@@ -1,4 +1,4 @@
-package main.java.by.itAcademy.Prakapenka.fourthlesson;
+package main.java.by.itAcademy.Prakapenka.lesson4;
 
 import java.util.Scanner;
 
