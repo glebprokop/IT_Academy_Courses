@@ -121,23 +121,3 @@ public class TicTacToe {
         return gameScn.nextInt();
     }
 }
-
-
-
-
-
-//    public static int[][] changeFieldAfterMove(int typeUser, int moveUser, int[][] gameField){
-//        int[][] newGameField = gameField;
-//        int stringNumber = (moveUser-1)/3;
-//        int columnNumber = moveUser - (stringNumber * 3) - 1;
-//
-//        if ((moveUser <= 9) && (moveUser >= 1)) {
-//            if (newGameField[stringNumber][columnNumber] == 9){
-//                newGameField[stringNumber][columnNumber] = typeUser;
-//                return newGameField;
-//            }
-//        } else{
-//            return gameField;
-//        }
-//        return gameField;
-
