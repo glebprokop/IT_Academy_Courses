@@ -3,9 +3,9 @@ import java.util.Arrays;
 
 public class GameTest {
     public static void main(String[] args) {
-        //drowFieldTest();
+        drowFieldTest();
         userMakeMoveTest();
-        //isGameFinishTest();
+        isGameFinishTest();
     }
 
     public static void drowFieldTest(){
