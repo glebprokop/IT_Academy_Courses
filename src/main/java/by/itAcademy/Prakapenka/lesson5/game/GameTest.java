@@ -3,9 +3,9 @@ import java.util.Arrays;
 
 public class GameTest {
     public static void main(String[] args) {
-        drowFieldTest();
+        //drowFieldTest();
         userMakeMoveTest();
-        isGameFinishTest();
+        //isGameFinishTest();
     }
 
     public static void drowFieldTest(){
@@ -24,11 +24,9 @@ public class GameTest {
     }
 
     public static void isGameFinishTest(){
-        int[][] testField = {{1, 9, 9}, {9, 1, 9}, {1, 9, 9}};
+        int[][] testField = {{1, 9, 1}, {1, 9, 9}, {1, 9, 9}};
         boolean result = TicTacToe.isGameFinish(testField);
         System.out.println(result);
         TicTacToe.drowField(testField);
-
-
     }
 }

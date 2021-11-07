@@ -62,16 +62,15 @@ public class TicTacToe {
 
         int userMove = takeNumberFromScanner();
 
-        if (checkUserMove(userMove, gameField) == false) {
+        while (checkUserMove(userMove, gameField) == false) {
             System.out.println("Incorrect input, try again!");
-            return userMakeMove(typeUser, gameField);
-        } else {
-            System.out.println("User " + user + " make a move!");
-            int stringNumber = (userMove - 1) / 3;
-            int columnNumber = userMove - (stringNumber * 3) - 1;
-            newGameField[stringNumber][columnNumber] = typeUser;
-            return newGameField;
+            userMove = takeNumberFromScanner();
         }
+        System.out.println("User " + user + " make a move!");
+        int stringNumber = (userMove - 1) / 3;
+        int columnNumber = userMove - (stringNumber * 3) - 1;
+        newGameField[stringNumber][columnNumber] = typeUser;
+        return newGameField;
     }
 
     public static boolean checkUserMove(int userMove, int[][] gameField) {
@@ -86,18 +85,6 @@ public class TicTacToe {
     }
 
     public static boolean isGameFinish(int[][] gameField) {
-        int[] crossRowWin = {1, 1, 1};
-        int[] zeroRowWin = {0, 0, 0};
-
-        //checking for rows
-        for (int[] row : gameField) {
-            if ((row.equals(crossRowWin)) || (row.equals(zeroRowWin))) {
-                return true;
-            }
-        }
-
-        int[] checkingArray = new int[3];
-        //checking for columns
         for (int i = 0; i < 3; i++) {
             //columns
             if ((gameField[0][i] == gameField[1][i]) && (gameField[1][i] == gameField[2][i]) && (gameField[0][i] != 9)) {
