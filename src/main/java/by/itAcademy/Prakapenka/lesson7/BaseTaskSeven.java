@@ -1,5 +1,5 @@
 package main.java.by.itAcademy.Prakapenka.lesson7;
- 
+
 import java.util.Locale;
 
 public class BaseTaskSeven {
