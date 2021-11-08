@@ -24,49 +24,28 @@ class Customer {
         this.bankAccount = bankAccount;
     }
 
-    public void setValues(){
-        Scanner scn = new Scanner(System.in);
-        String userInput;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-        //switch in do-while loop
-        do{
-            System.out.println("You can set attributes for the next values: \n" +
-                    "1 to first name, " +
-                    "2 to second name, " +
-                    "3 to patronymic, " +
-                    "4 to birth year, " +
-                    "5 to card number, " +
-                    "6 to bank account`s number " +
-                    "and input 0 for exit.");
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
 
-            userInput = scn.nextLine();
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
 
-            switch (userInput) {
-                case "1":
-                    this.firstName = scn.nextLine();
-                    break;
-                case "2":
-                    this.secondName = scn.nextLine();
-                    break;
-                case "3":
-                    this.patronymic = scn.nextLine();
-                    break;
-                case  "4":
-                    this.birthYear = Integer.parseInt(scn.nextLine());
-                    break;
-                case "5":
-                    this.cardNumber = Integer.parseInt(scn.nextLine());
-                    break;
-                case "6":
-                    this.bankAccount = Integer.parseInt(scn.nextLine());
-                    break;
-                case "0":
-                    System.out.println("Finish!");
-                    break;
-                default:
-                    System.out.println("Some error is coming, restart the program");
-            }
-        } while (! "0".equals(userInput));
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
+    }
+
+    public void setCardNumber(int cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public void setBankAccount(int bankAccount) {
+        this.bankAccount = bankAccount;
     }
 
     public String getFirstName(){
@@ -104,7 +83,3 @@ class Customer {
         return  (cal.get(Calendar.YEAR) - this.birthYear);
     }
 }
-
-
-
-
