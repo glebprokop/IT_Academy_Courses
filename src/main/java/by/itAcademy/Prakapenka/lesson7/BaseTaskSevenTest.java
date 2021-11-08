@@ -1,5 +1,5 @@
 package main.java.by.itAcademy.Prakapenka.lesson7;
- 
+
 public class BaseTaskSevenTest {
     public static void main(String[] args) {
         calculateCommasTest();
