@@ -1,4 +1,4 @@
-package main.java.by.itAcademy.Prakapenka.lesson6;
+package main.java.by.itAcademy.Prakapenka.lesson6c;
 
 public class TaskSixTests {
     public static void main(String[] args) {

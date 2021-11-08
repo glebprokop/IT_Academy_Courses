@@ -1,4 +1,4 @@
-package main.java.by.itAcademy.Prakapenka.lesson6;
+package main.java.by.itAcademy.Prakapenka.lesson6c;
 
 import java.util.ArrayList;
 import java.util.List;
