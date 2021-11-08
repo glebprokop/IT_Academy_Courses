@@ -1,14 +1,11 @@
 package main.java.by.itAcademy.Prakapenka.lesson6;
 
-import javax.swing.*;
-
 public class TaskSixTests {
     public static void main(String[] args) {
-        //checkNumbersMoreIndexTest();
-        //matrixRowAndColumnTest();
-        //ChildrenClassTest();
+        checkNumbersMoreIndexTest();
+        matrixRowAndColumnTest();
+        ChildrenClassTest();
         CustomerClassTests();
-
     }
 
     public static void CustomerClassTests() {
@@ -20,8 +17,18 @@ public class TaskSixTests {
         System.out.println(Darya.getAge());
         System.out.println(Darya.getCardNumber());
         System.out.println(Darya.getBankAccount());
+
+        Darya.setPatronymic("Michailovna");
+
         System.out.println("And printing of data in class method");
         Darya.printClientInfo();
+
+        Customer Vova = new Customer();
+        Vova.setFirstName("Vladimir");
+        Vova.setSecondName("Putin");
+        Vova.setCardNumber(0000);
+        Vova.setBankAccount(0000);
+        Vova.printClientInfo();
     }
 
     public static void ChildrenClassTest() {
@@ -69,6 +76,4 @@ public class TaskSixTests {
             System.out.println("Warning! Error - method is uncorrected! Output is " + workOut[0] + " " + workOut[1]);
         }
     }
-
-
 }
