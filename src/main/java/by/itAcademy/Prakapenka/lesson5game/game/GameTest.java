@@ -1,4 +1,4 @@
-package main.java.by.itAcademy.Prakapenka.lesson5.game;
+package main.java.by.itAcademy.Prakapenka.lesson5game.game;
 import java.util.Arrays;
 
 public class GameTest {

@@ -1,5 +1,5 @@
 /*in array: 0 - zero 1 - cross 9 - empty field */
-package main.java.by.itAcademy.Prakapenka.lesson5.game;
+package main.java.by.itAcademy.Prakapenka.lesson5game.game;
 
 import java.util.Scanner;
 
