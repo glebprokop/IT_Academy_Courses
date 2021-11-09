@@ -2,7 +2,33 @@ package main.java.by.itAcademy.Prakapenka.lesson8;
 
 class Triangle extends Figure
 {
+    double sizeX;
+    double sizeY;
     double sizeZ;
+
+    public double getSizeX() {
+        return sizeX;
+    }
+
+    public void setSizeX(double sizeX) {
+        this.sizeX = sizeX;
+    }
+
+    public double getSizeY() {
+        return sizeY;
+    }
+
+    public void setSizeY(double sizeY) {
+        this.sizeY = sizeY;
+    }
+
+    public double getSizeZ() {
+        return sizeZ;
+    }
+
+    public void setSizeZ(double sizeZ) {
+        this.sizeZ = sizeZ;
+    }
 
     Triangle(){
         this.sizeX = 0;
@@ -16,12 +42,14 @@ class Triangle extends Figure
         this.sizeZ = sizeZ;
     }
 
-    double calculateArea(){
-        double p = calculatePerimeter() / 2;
+    @Override
+    double getArea(){
+        double p = getPerimeter() / 2;
         return Math.sqrt(p * (p - sizeX) * (p - sizeY) * (p - sizeZ));
     }
 
-    double calculatePerimeter(){
+    @Override
+    double getPerimeter(){
         return this.sizeX + this.sizeY + this.sizeZ;
     }
 }

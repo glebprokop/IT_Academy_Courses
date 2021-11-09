@@ -1,8 +1,17 @@
 package main.java.by.itAcademy.Prakapenka.lesson8;
 
-class Circle extends Figure {
+class Circle extends Figure
+{
 
     double radius;
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
 
     Circle() {
         this.radius = 0;
@@ -12,15 +21,17 @@ class Circle extends Figure {
         this.radius = radius;
     }
 
-    double calculateArea() {
+    @Override
+    double getArea() {
         return this.radius * this.radius * 3.14;
     }
 
-    double calculatePerimeter() {
+    @Override
+    double getPerimeter() {
         return 2 * this.radius * 3.14;
     }
 
-    double calculateDiam() {
+    double getDiam() {
         return 2 * this.radius;
     }
 }

@@ -2,6 +2,24 @@ package main.java.by.itAcademy.Prakapenka.lesson8;
 
 class Rectangle extends Figure
 {
+    double sizeX;
+    double sizeY;
+
+    public double getSizeX() {
+        return sizeX;
+    }
+
+    public void setSizeX(double sizeX) {
+        this.sizeX = sizeX;
+    }
+
+    public double getSizeY() {
+        return sizeY;
+    }
+
+    public void setSizeY(double sizeY) {
+        this.sizeY = sizeY;
+    }
 
     Rectangle(){
         this.sizeX = 0;
@@ -13,11 +31,13 @@ class Rectangle extends Figure
         this.sizeY = sizeY;
     }
 
-    double calculateArea(){
+    @Override
+    double getArea(){
         return this.sizeX * this.sizeY;
     }
 
-    double calculatePerimeter(){
+    @Override
+    double getPerimeter(){
         return this.sizeX * 2 + this.sizeY * 2;
     }
 }
