@@ -26,10 +26,10 @@ public class Application {
 
         while(filterStudents.hasNext()) {
             Student nextStudent = filterStudents.next();
-            if (getAverageMark(nextStudent.allMarks) < 3){
+            if (nextStudent.getAverageMark() < 3){
                 filterStudents.remove();
             } else{
-                nextStudent.course += 1;
+                nextStudent.setCourse(nextStudent.getCourse() + 1);
             }
         }
         return students;
@@ -41,19 +41,9 @@ public class Application {
         while(checkedStudents.hasNext()) {
             Student nextStudent = checkedStudents.next();
 
-            if (nextStudent.course == course){
-                System.out.println("The student " + nextStudent.name + " study on the course number " + nextStudent.course);
+            if (nextStudent.getCourse() == course){
+                System.out.println("The student " + nextStudent.getName() + " study on the course number " + nextStudent.getCourse());
             }
         }
-    }
-
-    //добавил метод, чтобы не загромождать код внутри метода фильтра студентов
-    public static double getAverageMark(int[] allMarks){
-        double sum = 0;
-
-        for (int m : allMarks){
-            sum += m;
-        }
-        return sum / allMarks.length;
     }
 }

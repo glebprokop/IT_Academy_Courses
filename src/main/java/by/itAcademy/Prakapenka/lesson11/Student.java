@@ -2,10 +2,10 @@ package main.java.by.itAcademy.Prakapenka.lesson11;
 
 public class Student
 {
-    public String name;
-    public String group;
-    public int course;
-    public  int[] allMarks;
+    private String name;
+    private String group;
+    private int course;
+    private  int[] allMarks;
 
     public Student(String name, String group, int course, int[] allMarks){
         this.name = name;
@@ -44,5 +44,14 @@ public class Student
 
     public void setAllMarks(int[] allMarks) {
         this.allMarks = allMarks;
+    }
+
+    public double getAverageMark(){
+        double sum = 0;
+
+        for (int m : this.allMarks){
+            sum += m;
+        }
+        return sum / this.allMarks.length;
     }
 }
