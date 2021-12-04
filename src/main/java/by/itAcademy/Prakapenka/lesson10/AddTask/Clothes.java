@@ -11,7 +11,4 @@ public abstract class Clothes
         this.cost = cost;
         this.size = size;
     }
-
-
-
 }
