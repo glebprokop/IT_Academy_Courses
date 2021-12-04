@@ -5,10 +5,10 @@ import java.io.*;
 public class Application
 {
     public static void main(String[] args) {
-        String fileName = "D:/file.txt";
+        String fileName = "../fil.txt";
         copyFile(fileName);
 
-        String printedWay = "D:/Учебка"; // путь для примера работы
+        String printedWay = "."; // путь для примера работы
         printDirectories(printedWay);
     }
 
