@@ -7,6 +7,7 @@ import java.util.List;
 public class Application
 {
     public static void main(String[] args) {
+
         ArrayMaxCounter a0 = new ArrayMaxCounter();
         ArrayMaxCounter a1 = new ArrayMaxCounter();
         ArrayMaxCounter a2 = new ArrayMaxCounter();
