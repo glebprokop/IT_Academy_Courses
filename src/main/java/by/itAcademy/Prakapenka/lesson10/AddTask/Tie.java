@@ -3,7 +3,7 @@ package main.java.by.itAcademy.Prakapenka.lesson10.AddTask;
 public class Tie extends Clothes implements ClothesMan
 {
 
-    public Tie(int size, int cost, String color) {
+    public Tie(Size size, int cost, String color) {
         super(size, cost, color);
     }
 

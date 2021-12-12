@@ -3,7 +3,7 @@ package main.java.by.itAcademy.Prakapenka.lesson10.AddTask;
 public class Pants extends Clothes implements ClothesWoman, ClothesMan
 {
 
-    public Pants(int size, int cost, String color) {
+    public Pants(Size size, int cost, String color) {
         super(size, cost, color);
     }
 
