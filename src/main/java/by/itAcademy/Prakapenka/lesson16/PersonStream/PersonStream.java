@@ -2,6 +2,7 @@ package main.java.by.itAcademy.Prakapenka.lesson16.PersonStream;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.Random;
 
 public class PersonStream
 {
@@ -25,7 +26,9 @@ public class PersonStream
         int ages[] = generateIntArray(15, 30);
 
         for (int i = 0; i < length; i++){
-            generatedList.add(new Person(names, surNames, ages));
+            generatedList.add(new Person(names[(new Random()).nextInt(names.length)],
+                    surNames[(new Random()).nextInt(surNames.length)],
+                    ages[(new Random()).nextInt(ages.length)]));
         }
         return generatedList;
     }

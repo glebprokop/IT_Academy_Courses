@@ -10,18 +10,6 @@ public class Person
 
     public Person() {}
 
-    public Person(String names[], String surNames[], int ages[]){
-        /**
-         * Не знаю, насколько корректно использовать конструктор в качестве
-         * генератора объектов класса со случайными параметрами, показалось,
-         * что это может быть логичным. В любом случае лучше, чем создавать 50
-         * экземпляров класса вручную )))
-         */
-        this.name = names[(new Random()).nextInt(names.length)];
-        this.surName = surNames[(new Random()).nextInt(surNames.length)];
-        this.age = ages[(new Random()).nextInt(ages.length)];
-    }
-
     public Person(String name, String surName, int age) {
         this.name = name;
         this.surName = surName;
