@@ -8,18 +8,23 @@ package main.java.by.itAcademy.Prakapenka.lesson17.SynhroMethod;
 
 public class SynhroExerciseTwo extends Thread
 {
+    BuisnessLogicClass buisnessLogic;
+
+    public SynhroExerciseTwo(BuisnessLogicClass buisnessLogic){
+        this.buisnessLogic = buisnessLogic;
+    }
 
     @Override
     public void run() {
-        this.work();
+        buisnessLogic.work();
     }
 
-    public synchronized void work(){
-        try {
-            System.out.println(this.getName());
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//    public synchronized void work(){
+//        try {
+//            System.out.println(this.getName());
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
