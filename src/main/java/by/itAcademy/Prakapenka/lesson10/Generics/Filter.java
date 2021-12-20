@@ -1,6 +1,6 @@
 package main.java.by.itAcademy.Prakapenka.lesson10.Generics;
 
-public interface Filter
+public interface Filter<T>
 {
-    <T> boolean apply(T o);
+    boolean apply(T o);
 }
