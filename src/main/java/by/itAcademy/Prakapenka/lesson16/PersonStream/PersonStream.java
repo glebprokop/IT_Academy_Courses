@@ -28,10 +28,11 @@ public class PersonStream
         int maxAge = 30;
         int randomAge = minAge + new Random().nextInt(maxAge - minAge + 1);
 
+
         for (int i = 0; i < length; i++){
             generatedList.add(new Person(names[(new Random()).nextInt(names.length)],
                     surNames[(new Random()).nextInt(surNames.length)],
-                    randomAge));
+                    minAge + new Random().nextInt(maxAge - minAge + 1)));
         }
         return generatedList;
     }
