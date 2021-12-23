@@ -23,21 +23,16 @@ public class PersonStream
     public static List<Person> generatePersonList(List<Person> generatedList, int length){
         String names[] = {"Hleb", "Yliana", "Aleksandr", "Daria", "Maria"};
         String surNames[] = {"Petrov", "Ivanov", "Sidorov", "Suvorov"};
-        int ages[] = generateIntArray(15, 30);
+
+        int minAge = 15;
+        int maxAge = 30;
+        int randomAge = minAge + new Random().nextInt(maxAge - minAge + 1);
 
         for (int i = 0; i < length; i++){
             generatedList.add(new Person(names[(new Random()).nextInt(names.length)],
                     surNames[(new Random()).nextInt(surNames.length)],
-                    ages[(new Random()).nextInt(ages.length)]));
+                    randomAge));
         }
         return generatedList;
-    }
-
-    public static int[] generateIntArray(int startAge, int lastAge){
-        int[] generatedIntArray = new int[lastAge - startAge];
-
-        for (int i = 0; i + startAge < lastAge; i ++){
-            generatedIntArray[i] = startAge + i;
-        } return generatedIntArray;
     }
 }
