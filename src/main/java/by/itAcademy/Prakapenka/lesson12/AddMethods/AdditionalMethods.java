@@ -33,6 +33,7 @@ public class AdditionalMethods
         list1.add(14);
         list1.add(24);
         list1.add(13);
+        list1.add(14);
 
         Set<Integer> list2 = new HashSet<>();
         list2.add(1);
@@ -40,7 +41,7 @@ public class AdditionalMethods
         list2.add(14);
         list2.add(12);
 
-        System.out.println(countCommon(list1, list2));
+        System.out.println("Number of common is " + countCommon(list1, list2));
 
         //тесты для метода на удаление четных строк
         Set<String> list3 = new HashSet<>();
@@ -68,24 +69,15 @@ public class AdditionalMethods
     }
 
     public static int countCommon(Set<Integer> list1, Set<Integer> list2){
-        HashSet<Integer> commonSet = new HashSet<>();
-
-        for (Integer valueInFirst : list1){
-            for (Integer valueInSecond : list2){
-                if ((valueInFirst.equals(valueInSecond)) && !(commonSet.contains(valueInFirst))){
-                    commonSet.add(valueInFirst);
-                }
-            }
-        }
-        return commonSet.size();
+        list1.retainAll(list2);
+        return list1.size();
     }
 
     public static Set<String> removeEvenLength(Set<String> set){
         Iterator<String> iterSet = set.iterator();
 
         while(iterSet.hasNext()) {
-            String nextElem = iterSet.next();
-            if (nextElem.length()%2 == 0){
+            if (iterSet.next().length() % 2 == 0){
                 iterSet.remove();
             }
         }

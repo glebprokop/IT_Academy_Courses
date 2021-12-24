@@ -26,12 +26,7 @@ public class Application
     }
 
     public static void printNames(Map<String, Pet> petMap){
-        Iterator<Map.Entry<String, Pet>> iterPet = petMap.entrySet().iterator();
-
-        while(iterPet.hasNext()) {
-            Map.Entry<String, Pet> nextPet =  iterPet.next();
-            System.out.println(nextPet.getKey());
-        }
+        System.out.println(petMap.keySet());
     }
 
     public static void petsSpeak(Map<String, Pet> petMap){
