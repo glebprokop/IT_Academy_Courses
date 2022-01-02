@@ -1,24 +1,22 @@
 package main.java.by.itAcademy.Prakapenka.lesson19;
 
+import java.util.Scanner;
+
 /**
  * Паттерн - цепочка обязанностей. Клиентский код.
  */
-
-import java.util.Scanner;
-
 public class Application {
 
     /**
-     * Создание цепочки обязанностей - fatal-error-debug-info.
+     * Создание цепочки обязанностей (звонок-СМС-лог-консоль).
      * Клиент по желанию может изменить цепочку либо убрать из нее какой-то обработчик
      */
-
-    static HandlerInterface newHandleChecker = new FatalHandler();
+    static HandlerInterface newHandleChecker = new CallHandler();
 
     static {
-        newHandleChecker.linkWith(new ErrorHandler())
-                .linkWith(new DebugHandler())
-                .linkWith(new InfoHandler());
+        newHandleChecker.linkWith(new SMSHandler())
+                .linkWith(new ConsoleHandler())
+                .linkWith(new LoggerHandler());
     }
 
     public static void main(String[] args) {
@@ -27,7 +25,6 @@ public class Application {
          * Имитировал события приложения через switch-case, со вводом из консоли.
          * Ввод события, не указанного в enum, вызывает событие типа info (для блока default в switch-case)
          */
-
         Scanner sc = new Scanner(System.in);
         String userInp;
 
@@ -43,22 +40,19 @@ public class Application {
 
             switch (userInp){
                 case ("fatal"):
-                    checkingHandle(Handles.FATAL, newHandleChecker);
+                    checkingHandle(Handles.FATAL, getMessage(sc), newHandleChecker);
                     break;
                 case ("error"):
-                    checkingHandle(Handles.ERROR, newHandleChecker);
-                    break;
-                case ("info"):
-                    checkingHandle(Handles.INFO, newHandleChecker);
+                    checkingHandle(Handles.ERROR, getMessage(sc), newHandleChecker);
                     break;
                 case ("debug"):
-                    checkingHandle(Handles.DEBUG, newHandleChecker);
+                    checkingHandle(Handles.DEBUG, getMessage(sc), newHandleChecker);
                     break;
                 case ("exit"):
                     System.out.println("Finish!");
                     break;
                 default:
-                    checkingHandle(Handles.INFO, newHandleChecker);
+                    checkingHandle(Handles.INFO, getMessage(sc), newHandleChecker);
             }
         } while (!userInp.equals("exit"));
     }
@@ -67,10 +61,20 @@ public class Application {
      * Метод, который запускает цепочку обязанностей в клиентском коде
      *
      * @param handle - передаваемый параметр - объект enum Handle
-     * @param checker - первый элемент цепочки - объект класса FatalHandler (дочерний от HandlerInterface)
+     * @param checker - первый элемент цепочки - объект класса CallHandler (дочерний от HandlerInterface)
      */
+    public static void checkingHandle(Handles handle, String message, HandlerInterface checker){
+        checker.checkHandle(handle, message);
+    }
 
-    public static void checkingHandle(Handles handle, HandlerInterface checker){
-        checker.checkHandle(handle);
+    /**
+     * Получение сообщения о событии.
+     *
+     * @param sc Сканер для ввода сообщения
+     * @return message - введенное сообщение
+     */
+    public static String getMessage(Scanner sc){
+        System.out.println("Введите сообщение для события!");
+        return sc.nextLine();
     }
 }

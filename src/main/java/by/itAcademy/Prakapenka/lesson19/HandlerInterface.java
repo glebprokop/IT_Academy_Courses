@@ -7,6 +7,6 @@ package main.java.by.itAcademy.Prakapenka.lesson19;
 
 public interface HandlerInterface {
     HandlerInterface linkWith(HandlerInterface next);
-    boolean checkHandle(Handles handle);
-    boolean checkLink(Handles handle);
+    boolean checkHandle(Handles handle, String message);
+    boolean checkLink(Handles handle, String message);
 }

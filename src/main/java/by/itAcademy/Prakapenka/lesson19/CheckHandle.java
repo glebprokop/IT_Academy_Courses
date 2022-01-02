@@ -1,29 +1,26 @@
 package main.java.by.itAcademy.Prakapenka.lesson19;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 /**
  * Абстрактный класс, который описывает базовое поведение каждого обработчика событий.
  * В принципе можно было бы обойтись и только им, без создания соответствующего интерфейса.
  */
-
-import java.io.IOException;
-import java.util.logging.*;
-import java.util.logging.Logger;
-
 public abstract class CheckHandle implements HandlerInterface {
     private HandlerInterface nextHandler;
 
     /**
-     * Создание логгера, который будет записывать информацию о поступающих ошибках в Log.config
+     * Создание логгера, который будет записывать информацию о поступающих ошибках в Logger.txt.
+     * Статический инициализатор - блок для инициализации статической переменной (логгера). Необходим
+     * для ведения единого логгера в программе.
      */
-
-    static Logger log = Logger.getLogger(CheckHandle.class.getName());
-    static Handler fileHandler;
+    static BufferedWriter logger;
 
     static {
         try {
-            fileHandler = new FileHandler("Log.config", true);
-            log.addHandler(fileHandler);
-        } catch (IOException e) {
+            logger = new BufferedWriter(new FileWriter("Logger.txt"));
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -34,7 +31,6 @@ public abstract class CheckHandle implements HandlerInterface {
      * @param nextHandler - следущий обработчик событий
      * @return
      */
-
     @Override
     public HandlerInterface linkWith(HandlerInterface nextHandler) {
         this.nextHandler = nextHandler;
@@ -44,37 +40,15 @@ public abstract class CheckHandle implements HandlerInterface {
     /**
      * Метод для проверки, обработано ли событие и нужно ли передавать его другому обработчику
      *
-     * @param handle - событие
+     * @param handle событие, message - сообщение
      * @return - вызывает обработчик, указанный как next, если событие не было обработано
      */
-
     @Override
-    public boolean checkLink(Handles handle) {
-        if (handle == null){
-            return true;
+    public boolean checkLink(Handles handle, String message) {
+        if (nextHandler != null){
+            return nextHandler.checkHandle(handle, message);
         }
 
-        return nextHandler.checkHandle(handle);
-    }
-
-    /**
-     * Здесь описан код, отправляющий СМС для СЕО
-     *
-     * @param handle - тип произошедшего события
-     */
-
-    public void messageSMS (Handles handle){
-        System.out.println("СМС для СЕО - ошибка типа " + handle);
-    }
-
-
-    /**
-     * Здесь описан код звонка директору
-     *
-     * @param handle - тип произошедшего события
-     */
-
-    public void messageCall (Handles handle){
-        System.out.println("Звоним директору - ошибка типа " + handle);
+        return true;
     }
 }
