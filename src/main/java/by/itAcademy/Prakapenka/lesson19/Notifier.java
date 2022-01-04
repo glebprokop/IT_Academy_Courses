@@ -7,8 +7,8 @@ import java.io.FileWriter;
  * Абстрактный класс, который описывает базовое поведение каждого обработчика событий.
  * В принципе можно было бы обойтись и только им, без создания соответствующего интерфейса.
  */
-public abstract class CheckHandle implements HandlerInterface {
-    private HandlerInterface nextHandler;
+public abstract class Notifier implements NotifyInterface {
+    private NotifyInterface nextNotify;
 
     /**
      * Создание логгера, который будет записывать информацию о поступающих ошибках в Logger.txt.
@@ -28,25 +28,25 @@ public abstract class CheckHandle implements HandlerInterface {
     /**
      * Метод, который связывает элементы цепочки обязанностей (вызывается из клиентского кода - здесь Application)
      *
-     * @param nextHandler - следущий обработчик событий
+     * @param nextNotify - следущий обработчик событий
      * @return
      */
     @Override
-    public HandlerInterface linkWith(HandlerInterface nextHandler) {
-        this.nextHandler = nextHandler;
-        return nextHandler;
+    public NotifyInterface linkWith(NotifyInterface nextNotify) {
+        this.nextNotify = nextNotify;
+        return nextNotify;
     }
 
     /**
      * Метод для проверки, обработано ли событие и нужно ли передавать его другому обработчику
      *
-     * @param handle событие, message - сообщение
+     * @param event событие, message - сообщение
      * @return - вызывает обработчик, указанный как next, если событие не было обработано
      */
     @Override
-    public boolean checkLink(Handles handle, String message) {
-        if (nextHandler != null){
-            return nextHandler.checkHandle(handle, message);
+    public boolean checkLink(Events event, String message) {
+        if (nextNotify != null){
+            return nextNotify.notifyManager(event, message);
         }
 
         return true;

@@ -11,12 +11,12 @@ public class Application {
      * Создание цепочки обязанностей (звонок-СМС-лог-консоль).
      * Клиент по желанию может изменить цепочку либо убрать из нее какой-то обработчик
      */
-    static HandlerInterface newHandleChecker = new CallHandler();
+    static NotifyInterface userNotifier = new CallNotify();
 
     static {
-        newHandleChecker.linkWith(new SMSHandler())
-                .linkWith(new ConsoleHandler())
-                .linkWith(new LoggerHandler());
+        userNotifier.linkWith(new SMSNotify())
+                .linkWith(new ConsoleNotify())
+                .linkWith(new LoggerNotify());
     }
 
     public static void main(String[] args) {
@@ -40,19 +40,19 @@ public class Application {
 
             switch (userInp){
                 case ("fatal"):
-                    checkingHandle(Handles.FATAL, getMessage(sc), newHandleChecker);
+                    startNotifying(Events.FATAL, getMessage(sc), userNotifier);
                     break;
                 case ("error"):
-                    checkingHandle(Handles.ERROR, getMessage(sc), newHandleChecker);
+                    startNotifying(Events.ERROR, getMessage(sc), userNotifier);
                     break;
                 case ("debug"):
-                    checkingHandle(Handles.DEBUG, getMessage(sc), newHandleChecker);
+                    startNotifying(Events.DEBUG, getMessage(sc), userNotifier);
                     break;
                 case ("exit"):
                     System.out.println("Finish!");
                     break;
                 default:
-                    checkingHandle(Handles.INFO, getMessage(sc), newHandleChecker);
+                    startNotifying(Events.INFO, getMessage(sc), userNotifier);
             }
         } while (!userInp.equals("exit"));
     }
@@ -60,11 +60,11 @@ public class Application {
     /**
      * Метод, который запускает цепочку обязанностей в клиентском коде
      *
-     * @param handle - передаваемый параметр - объект enum Handle
-     * @param checker - первый элемент цепочки - объект класса CallHandler (дочерний от HandlerInterface)
+     * @param event - передаваемый параметр - объект enum Handle
+     * @param userNotifier - первый элемент цепочки - объект класса CallNotify (дочерний от HandlerInterface)
      */
-    public static void checkingHandle(Handles handle, String message, HandlerInterface checker){
-        checker.checkHandle(handle, message);
+    public static void startNotifying(Events event, String message, NotifyInterface userNotifier){
+        userNotifier.notifyManager(event, message);
     }
 
     /**
